@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect x="28" y="32" width="8" height="24" rx="2" stroke="#E86363" stroke-width="2" fill="none"/>
+  <path d="M28 36 Q32 12 36 36" stroke="#E86363" stroke-width="2" fill="none"/>
+  <path d="M28 32 Q20 16 32 8 Q44 16 36 32" stroke="#F5A623" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M22 12 Q32 4 42 12" stroke="#E86363" stroke-width="1.5" fill="none">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+  </path>
+</svg>

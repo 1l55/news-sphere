@@ -1,0 +1,32 @@
+import type { MetadataRoute } from 'next';
+
+export default function manifest(): MetadataRoute.Manifest {
+  return {
+    name: 'NewsSphere · 新闻星球',
+    short_name: '新闻星球',
+    description: '新闻不是信息流，而是一个有生命的世界。探索、沉浸、发现。',
+    start_url: '/',
+    display: 'standalone',
+    background_color: '#0a0a1a',
+    theme_color: '#0a0a1a',
+    orientation: 'portrait-primary',
+    icons: [
+      {
+        src: '/icons/icon-192.png',
+        sizes: '192x192',
+        type: 'image/png',
+        purpose: 'any',
+      },
+      {
+        src: '/icons/icon-512.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'any',
+      },
+    ],
+    categories: ['news', 'lifestyle'],
+    lang: 'zh-CN',
+    dir: 'ltr',
+    scope: '/',
+  };
+}
