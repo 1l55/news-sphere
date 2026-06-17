@@ -1,8 +1,17 @@
 'use client';
 
 import { useRef, memo, useCallback } from 'react';
+import { useRouter } from 'next/navigation';
 import type { NewsArticle } from '@/lib/types';
 import NewsCard from '@/components/shared/NewsCard';
+
+const CarouselItem = memo(function CarouselItem({ article }: { article: NewsArticle }) {
+  const router = useRouter();
+  const handleClick = useCallback(() => {
+    router.push(`/article/${article.id}`);
+  }, [router, article.id]);
+  return <NewsCard article={article} size="md" onClick={handleClick} />;
+});
 
 interface NewsCarouselProps {
   articles: NewsArticle[];
@@ -43,7 +52,7 @@ const NewsCarousel = memo(function NewsCarousel({ articles }: NewsCarouselProps)
       >
         {articles.map((article) => (
           <div key={article.id} className="min-w-[280px] shrink-0" role="listitem">
-            <NewsCard article={article} size="md" />
+            <CarouselItem article={article} />
           </div>
         ))}
       </div>

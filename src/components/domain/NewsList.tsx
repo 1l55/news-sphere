@@ -1,11 +1,20 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import type { NewsArticle, NewsDomain } from '@/lib/types';
 import NewsCard from '@/components/shared/NewsCard';
 import LoadingState from '@/components/shared/LoadingState';
 import EmptyState from '@/components/shared/EmptyState';
+
+const NewsListItem = memo(function NewsListItem({ article }: { article: NewsArticle }) {
+  const router = useRouter();
+  const handleClick = useCallback(() => {
+    router.push(`/article/${article.id}`);
+  }, [router, article.id]);
+  return <NewsCard article={article} size="md" onClick={handleClick} />;
+});
 
 interface NewsListProps {
   articles: NewsArticle[];
@@ -38,7 +47,7 @@ const NewsList = memo(function NewsList({
           transition={{ delay: i * 0.06, duration: 0.4 }}
           role="listitem"
         >
-          <NewsCard article={article} size="md" />
+          <NewsListItem article={article} />
         </motion.div>
       ))}
     </div>
